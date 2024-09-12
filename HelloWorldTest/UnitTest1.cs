@@ -22,7 +22,7 @@ namespace HelloWorldTest
         [InlineData(2, 2, 4)]
         [InlineData(5, 0, 5)]
         [InlineData(0, 5, 5)]
-        [Trait("TestGroup", "Adder")]
+        [Trait("TestGroup", "Adder_Sum_GivesSumOfParameters")]
         public void Adder_Sum_GivesSumOfParameters(int first, int second, int expected)
         {
             // Arrange
@@ -42,6 +42,8 @@ namespace HelloWorldTest
 
 
         [Fact]
+        [Trait("TestGroup", "TestStudentPrintsSomethingToConsole")]
+
         public void TestStudentPrintsSomethingToConsole()
         {
             // Arrange
