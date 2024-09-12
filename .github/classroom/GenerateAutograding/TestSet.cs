@@ -11,11 +11,11 @@ internal sealed class TestSet
         
         new DotnetTestGroup("TestStudentPrintsSomethingToConsole")
         {
-            Points = 25
+            Points = 50
         },
         new DotnetTestGroup("Adder_Sum_GivesSumOfParameters")
         {
-            Points = 25
+            Points = 50
         },
     };
 }
