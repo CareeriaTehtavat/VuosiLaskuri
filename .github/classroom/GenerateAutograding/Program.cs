@@ -31,6 +31,7 @@ return Parser.Default.ParseArguments<Options>(args).MapResult(
     },
     _ => 1);
 
+
 class Options
 {
     [Option('e', "entry-project", Required = true, HelpText = "Name of the project that provides input/output for use with `dotnet run`.")]
