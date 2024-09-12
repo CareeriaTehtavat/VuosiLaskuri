@@ -10,7 +10,7 @@ namespace HelloWorld
     {
         public int Summa(int x, int y)
         {
-            return y + x;
+            return y + y;
         }
     }
 }
