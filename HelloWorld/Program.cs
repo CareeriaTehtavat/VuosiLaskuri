@@ -2,9 +2,14 @@
 {
     public class Program
     {
+        public static string sana1, sana2;
+
         public static void Main(string[] args)
         {
-            //Console.WriteLine("Hello, World!");
+
+            Console.WriteLine("   '");
+            Console.WriteLine("  ' ' '");
+            Console.WriteLine("''''");
         }
     }
 }
