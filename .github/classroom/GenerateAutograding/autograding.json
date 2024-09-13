@@ -4,12 +4,12 @@
     {
       "name": "Unit Tests (ArtPrinting)",
       "setup": "",
-      "run": "DOTNET_CLI_HOME=/home/runner dotnet test --filter TestGroup=Adder_Sum_GivesSumOfParameters",
+      "run": "DOTNET_CLI_HOME=/home/runner dotnet test --filter TestGroup=ArtPrinting",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 10
+      "points": 100
     }
   ]
 }
