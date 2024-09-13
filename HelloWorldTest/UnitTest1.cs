@@ -11,20 +11,16 @@ namespace HelloWorldTest
     {
 
 
-        //Harjoitus - Piirtelyä
+        //Harjoitus - Tekstimuuttujat
         [Fact]
-        [Trait("TestGroup", "ArtPrinting")]
-        public void ArtPrinting()
+        [Trait("TestGroup", "NameTesting")]
+        public void NameTesting()
         {
             // Arrange
             using var sw = new StringWriter();
             Console.SetOut(sw);
 
-            // Updated expected output to match actual output format
-            var expectedOutput = "   *\r\n\r\n   *\r\n  ***\r\n *****\r\n*******";
-            var expectedOutput2 = "   *   \r\n       \r\n   *   \r\n  ***  \r\n ***** \r\n*******";
-
-
+    
             // Set a timeout of 30 seconds for the test execution
             var cancellationTokenSource = new CancellationTokenSource();
             cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(30));
@@ -44,17 +40,23 @@ namespace HelloWorldTest
                 var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
                 var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-                var expectedLines1 = expectedOutput.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-                var expectedLines2 = expectedOutput2.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                // Check if the result matches either expected output
-                bool matchesExpectedOutput1 = CompareLines(resultLines, expectedLines1);
-                bool matchesExpectedOutput2 = CompareLines(resultLines, expectedLines2);
+                string[] requiredWords = { "Minun", "nimeni", "on", "ja", "asun", "kaupungissa" };
+
+                bool firstLinePass = requiredWords.All(word => resultLines[0].Contains(word));
+
+
+
+                int secondLineWordCount = CountWords(resultLines[1]);
+                bool secondPass = secondLineWordCount == 1; // Replace length check with word count check
+
+                int threedWords = CountWords(resultLines[2]);
+                bool threedPass = threedWords == 2; // Replace length check with word count check
 
                 // Assert
-                Assert.True(matchesExpectedOutput1 || matchesExpectedOutput2, "The output did not match either expected pattern. Output: " + result);
-
-
+                Assert.True(firstLinePass, "firstLine not Pass" + result);
+                Assert.True(secondPass, "secondnot Pass" + result + " / " + secondLineWordCount);
+                Assert.True(threedPass, "threed not Pass" + result + " / " + threedWords);
 
             }
             catch (OperationCanceledException)
@@ -70,7 +72,10 @@ namespace HelloWorldTest
                 cancellationTokenSource.Dispose();
             }
         }
-
+        private int CountWords(string line)
+        {
+            return line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        }
 
         private bool CompareLines(string[] actualLines, string[] expectedLines)
         {
