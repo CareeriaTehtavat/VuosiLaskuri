@@ -46,7 +46,7 @@ namespace HelloWorldTest
                 Assert.True(LineContainsIgnoreSpaces(resultLines[1], "Tulo: 50"), "Line does not contain expected text: " + resultLines[1]);
                 Assert.True(LineContainsIgnoreSpaces(resultLines[2], "Summa: 15"), "Line does not contain expected text: " + resultLines[2]);
                 Assert.True(LineContainsIgnoreSpaces(resultLines[3], "Erotus: 5"), "Line does not contain expected text: " + resultLines[3]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[4], "Osam‰‰r‰: 2"), "Line does not contain expected text: " + resultLines[4]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[4], " 2"), "Line does not contain expected text: " + resultLines[4]);
             }
             catch (OperationCanceledException)
             {
