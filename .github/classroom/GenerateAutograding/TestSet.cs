@@ -9,7 +9,7 @@ internal sealed class TestSet
     public IReadOnlyList<Test> Tests => new Test[]
     {
         
-        new DotnetTestGroup("NumeromuuttujatINT")
+        new DotnetTestGroup("PeruslaskutNumeromuuttujilla")
         {
             Points = 100
         },

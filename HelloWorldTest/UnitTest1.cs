@@ -4,6 +4,7 @@
 using HelloWorld; // Ensure this is the correct namespace for the Program class
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace HelloWorldTest
 {
@@ -11,10 +12,10 @@ namespace HelloWorldTest
     {
 
 
-        //Harjoitus - NumeromuuttujatINT
+        //Harjoitus - PeruslaskutNumeromuuttujilla
         [Fact]
-        [Trait("TestGroup", "NumeromuuttujatINT")]
-        public void NumeromuuttujatINT()
+        [Trait("TestGroup", "PeruslaskutNumeromuuttujilla")]
+        public void PeruslaskutNumeromuuttujilla()
         {
             // Arrange
             using var sw = new StringWriter();
@@ -41,12 +42,11 @@ namespace HelloWorldTest
 
                 var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                Assert.Equal("Luvut yhdessä pötkössä: 105", resultLines[0]);
-                Assert.Equal("Luvut erikseen listattuna: 10 5", resultLines[1]);
-                Assert.Equal("Lukujen summa on: 15", resultLines[2]);
-
-              
-
+                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "Peruslaskujen tulokset:"), "Line does not contain expected text: " + resultLines[0]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "Tulo: 50"), "Line does not contain expected text: " + resultLines[1]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[2], "Summa: 15"), "Line does not contain expected text: " + resultLines[2]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[3], "Erotus: 5"), "Line does not contain expected text: " + resultLines[3]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[4], "Osamäärä: 2"), "Line does not contain expected text: " + resultLines[4]);
             }
             catch (OperationCanceledException)
             {
@@ -61,6 +61,14 @@ namespace HelloWorldTest
                 cancellationTokenSource.Dispose();
             }
         }
+        private bool LineContainsIgnoreSpaces(string line, string expectedText)
+        {
+            // Remove all whitespace from the line and the expected text
+            string normalizedLine = Regex.Replace(line, @"\s+", "");
+            string normalizedExpectedText = Regex.Replace(expectedText, @"\s+", "");
+            return normalizedLine.Contains(normalizedExpectedText);
+        }
+
         private int CountWords(string line)
         {
             return line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
