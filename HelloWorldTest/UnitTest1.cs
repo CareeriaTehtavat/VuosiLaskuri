@@ -43,12 +43,16 @@ namespace HelloWorldTest
                 // Get the output that was written to the console
                 var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
+                var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+                var expectedLines1 = expectedOutput.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+                var expectedLines2 = expectedOutput2.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                bool matchesExpectedOutput = result == expectedOutput || result == expectedOutput2;
+                // Check if the result matches either expected output
+                bool matchesExpectedOutput1 = CompareLines(resultLines, expectedLines1);
+                bool matchesExpectedOutput2 = CompareLines(resultLines, expectedLines2);
 
-                // Separate assertions with descriptive messages
-                Assert.True(matchesExpectedOutput, "output: "
-                    + result + "\n what we waite: \n" + expectedOutput);
+                // Assert
+                Assert.True(matchesExpectedOutput1 || matchesExpectedOutput2, "The output did not match either expected pattern. Output: " + result);
 
 
 
@@ -68,7 +72,23 @@ namespace HelloWorldTest
         }
 
 
+        private bool CompareLines(string[] actualLines, string[] expectedLines)
+        {
+            if (actualLines.Length != expectedLines.Length)
+            {
+                return false;
+            }
 
+            for (int i = 0; i < actualLines.Length; i++)
+            {
+                if (actualLines[i] != expectedLines[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
     }
 }
