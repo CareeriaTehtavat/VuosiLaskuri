@@ -43,8 +43,14 @@ namespace HelloWorldTest
                 // Get the output that was written to the console
                 var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
-                // Assert: Check if the result matches the expected output
-                Assert.True(result == expectedOutput || result == expectedOutput2, "The output did not match either expected pattern.");
+
+                bool matchesExpectedOutput = result == expectedOutput || result == expectedOutput2;
+
+                // Separate assertions with descriptive messages
+                Assert.True(matchesExpectedOutput, "output: "
+                    + result + "\n what we waite: \n" + expectedOutput);
+
+
 
             }
             catch (OperationCanceledException)
