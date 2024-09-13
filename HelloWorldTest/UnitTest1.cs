@@ -9,20 +9,21 @@ namespace HelloWorldTest
 {
     public class UnitTest1
     {
-       
 
-        //Harjoitus - Hello Nimi!
 
+        //Harjoitus - Piirtelyä
         [Fact]
-        [Trait("TestGroup", "MyNamePrinting")]
-
-        public void MyNamePrinting()
+        [Trait("TestGroup", "ArtPrinting")]
+        public void ArtPrinting()
         {
             // Arrange
             using var sw = new StringWriter();
             Console.SetOut(sw);
 
-            string expectedOutput = "Hello !";
+            // Updated expected output to match actual output format
+            var expectedOutput = "   *\r\n\r\n   *\r\n  ***\r\n *****\r\n*******";
+            var expectedOutput2 = "   *   \r\n       \r\n   *   \r\n  ***  \r\n ***** \r\n*******";
+
 
             // Set a timeout of 30 seconds for the test execution
             var cancellationTokenSource = new CancellationTokenSource();
@@ -40,14 +41,10 @@ namespace HelloWorldTest
                 task.Wait(cancellationTokenSource.Token);  // Wait for the task to complete or timeout
 
                 // Get the output that was written to the console
-                var result = sw.ToString().Trim();
-                var words = result.Split(new[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
                 // Assert: Check if the result matches the expected output
-                Assert.False(string.IsNullOrEmpty(result), "The program did not print anything to the console.");
-                //Assert.Equal(expectedOutput, result);
-                Assert.Contains("Hello", words);
-                Assert.Equal(2, words.Count);
+                Assert.True(result == expectedOutput || result == expectedOutput2, "The output did not match either expected pattern.");
 
             }
             catch (OperationCanceledException)
@@ -66,7 +63,7 @@ namespace HelloWorldTest
 
 
 
-      
+
     }
 }
 
