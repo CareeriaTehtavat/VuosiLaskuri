@@ -11,10 +11,10 @@ namespace HelloWorldTest
     {
 
 
-        //Harjoitus - Tekstimuuttujat
+        //Harjoitus - NumeromuuttujatINT
         [Fact]
-        [Trait("TestGroup", "NameTesting")]
-        public void NameTesting()
+        [Trait("TestGroup", "NumeromuuttujatINT")]
+        public void NumeromuuttujatINT()
         {
             // Arrange
             using var sw = new StringWriter();
@@ -41,22 +41,11 @@ namespace HelloWorldTest
 
                 var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                string[] requiredWords = { "Minun", "nimeni", "on", "ja", "asun", "kaupungissa" };
+                Assert.Equal("Luvut yhdessä pötkössä: 105", resultLines[0]);
+                Assert.Equal("Luvut erikseen listattuna: 10 5", resultLines[1]);
+                Assert.Equal("Lukujen summa on: 15", resultLines[2]);
 
-                bool firstLinePass = requiredWords.All(word => resultLines[0].Contains(word));
-
-
-
-                int secondLineWordCount = CountWords(resultLines[1]);
-                bool secondPass = secondLineWordCount == 1; // Replace length check with word count check
-
-                int threedWords = CountWords(resultLines[2]);
-                bool threedPass = threedWords == 2; // Replace length check with word count check
-
-                // Assert
-                Assert.True(firstLinePass, "firstLine not Pass" + result);
-                Assert.True(secondPass, "secondnot Pass" + result + " / " + secondLineWordCount);
-                Assert.True(threedPass, "threed not Pass" + result + " / " + threedWords);
+              
 
             }
             catch (OperationCanceledException)

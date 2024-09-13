@@ -2,9 +2,9 @@
   "tests": [
 
     {
-      "name": "Unit Tests (NameTesting)",
+      "name": "Unit Tests (NumeromuuttujatINT)",
       "setup": "",
-      "run": "DOTNET_CLI_HOME=/home/runner dotnet test --filter TestGroup=NameTesting",
+      "run": "DOTNET_CLI_HOME=/home/runner dotnet test --filter TestGroup=NumeromuuttujatINT",
       "input": "",
       "output": "",
       "comparison": "included",
