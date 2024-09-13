@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HelloWorld\HelloWorld.csproj" />
+    <ProjectReference Include="..\HelloWorld\ConsoleAPP.csproj" />
   </ItemGroup>
 
   <ItemGroup>

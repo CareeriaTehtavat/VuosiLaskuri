@@ -9,13 +9,9 @@ internal sealed class TestSet
     public IReadOnlyList<Test> Tests => new Test[]
     {
         
-        new DotnetTestGroup("TestStudentPrintsSomethingToConsole")
+        new DotnetTestGroup("MyNamePrinting")
         {
-            Points = 50
-        },
-        new DotnetTestGroup("Adder_Sum_GivesSumOfParameters")
-        {
-            Points = 50
+            Points = 100
         },
     };
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{6BEA2EEE-9496-473B-A1AD-A2F6850B8141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAPP", "HelloWorld\ConsoleAPP.csproj", "{6BEA2EEE-9496-473B-A1AD-A2F6850B8141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldTest", "HelloWorldTest\HelloWorldTest.csproj", "{D06F47A7-7BA3-4BFA-A59E-C8F83C4CDC37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAPPTest", "HelloWorldTest\ConsoleAPPTest.csproj", "{D06F47A7-7BA3-4BFA-A59E-C8F83C4CDC37}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateAutograding", ".github\classroom\GenerateAutograding\GenerateAutograding.csproj", "{EDA8E08B-E4CA-4973-BFF5-6E6AEAB1F30D}"
 EndProject
