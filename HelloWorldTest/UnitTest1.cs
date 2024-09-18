@@ -11,8 +11,8 @@ namespace HelloWorldTest
 
         //Harjoitus - PeruslaskutNumeromuuttujilla
         [Fact]
-        [Trait("TestGroup", "NumeromuuttujatDouble")]
-        public void NumeromuuttujatDouble()
+        [Trait("TestGroup", "VuosiLaskuri ")]
+        public void VuosiLaskuri()
         {
             // Arrange
             using var sw = new StringWriter();
@@ -37,13 +37,11 @@ namespace HelloWorldTest
                 // Get the output that was written to the console
                 var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
-                var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+                // Define a regex pattern to match the structure, ignoring specific values
+                string pattern = @"Nimeni on [\w\s]+\. Ikäni on \d+ ja syntymävuoteni on \d{4} ja vuonna \d{4} täytän \d+ vuotta!";
 
-                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "Peruslaskujen tulokset:"), "Line does not contain expected text: " + resultLines[0]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "57,75"), "Line does not contain expected text: " + resultLines[1]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[2], "16"), "Line does not contain expected text: " + resultLines[2]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[3], " 5"), "Line does not contain expected text: " + resultLines[3]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[4], " 1,9090909"), "Line does not contain expected text: " + resultLines[4]);
+                // Assert: Check if the result matches the expected structure
+                Assert.Matches(pattern, result);
             }
             catch (OperationCanceledException)
             {
@@ -91,6 +89,5 @@ namespace HelloWorldTest
 
     }
 }
-
 
 

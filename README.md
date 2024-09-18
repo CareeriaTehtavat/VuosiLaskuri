@@ -1,27 +1,26 @@
-# Peruslaskut numeromuuttujilla (double)
+# VuosiLaskuri 
 
 ## JOHDANTO
-- Tehtävän koodi muistuttaa edellisiä tehtäviä, hyödynnä jo oppimaasi.
 - Muista: Numeromuuttuja ei voi sisältää tekstiä, pelkästään numeroita.
+- Muista: Tekstimuuttujan täytyy aina olla hipsujen " " sisällä.
 - Alustettu muuttuja sisältää arvon luomisestaan alkaen.
-  - Alustettuja muuttujia voi luoda vain yhden kerrallaan
-  - esim: double luku1 = 10,5;
+    -Alustettuja muuttujia voi luoda vain yhden kerrallaan
+    - esim: double luku1 = 10,5;
 - Alustamaton muuttuja ei sisällä arvoa luontihetkellä.
-  - Alustamattomia muuttujia voi luoda useita samaan aikaan
-  - esim: double summa, erotus;
+    - Alustamattomia muuttujia voi luoda useita samaan aikaan
+    - esim: double summa, erotus;
 ## TEHTÄVÄNANTO
-- Tee konsolisovellus, jossa on yhteensä kuusi numeromuuttujaa ja neljä konsoliin tulostava "write line" -tyyppistä konsolimetodia
-- Muuttujat: Kaksi ensimmäistä ovat edellisestä tehtävästä tutut double tyyppiset luku1 ja luku2. Luku1 on arvoltaan 10,5 ja luku2 5,5. Neljä muuta ovat arvoon alustamattomat tulo, erotus, summa ja osamäärä.
-- Laita ohjelma laskemaan kaikille alustamattomille luvuille arvot alla olevan esimerkin tavoin:
-- summa = luku1 + luku2;
-- Metodit: tulostavat muuttujat konsoliin. WriteLine tulosterivejä tulee 5 erilaista. Älä kirjoita konsolitulosteen tekstiin lukuja vaan käytä muuttujia. Ensimmäisessä tulosterivissä on vain tekstiä.
+- Tee konsolisovellus, jossa on yhteensä viisi numeromuuttujaa, yksi tekstimuuttuja ja yksi konsoliin tulostava "write line" -tyyppinen konsolitoiminto
+- Muuttujat: lukumuuttujat - ika, vuosi, syntymavuosi, tavoiteika, tavoitevuosi. Tekstimuuttuja - nimi. 
+- Syötä arvot vuosi, syntymavuosi ja tavoiteika muuttujille (tämä vuosi, sinun syntymävuotesi ja tavoiteika voi olla vaikka 20). Syötä arvo myös nimi muuttujalle (sinun nimesi).
+- Laita ohjelma laskemaan ikäsi (vuosi - syntymavuosi) sekä tavoitevuosi muuttujan arvon (syntymavuosi + tavoiteika)
+- Toiminto: tulostaa konsoliin WriteLine toiminnolla mallikuvan lauseen.
+- Huomioi pisteet ja huutomerkit yms. Asettele teksti WriteLinen sisällä "oikein", jotta tulosteesi on oikein. 
 - Esimerkkituloste:
 
   
 ```
-Luvut yhdessä pötkössä: 10,55,5
-Luvut erikseen listattuna: 10,5 5,5
-Lukujen summa on: 16
+Nimeni on Pekka. Ikäni on 25 ja syntymävuoteni on 1997 ja vuonna 2010 täytän 13 vuotta!
 ```
 > [!IMPORTANT]
 > Koodin kirjoittamisen johdanto
