@@ -14,14 +14,14 @@ namespace HelloWorldTest
 
         //Harjoitus - PeruslaskutNumeromuuttujilla
         [Fact]
-        [Trait("TestGroup", "PeruslaskutNumeromuuttujilla")]
-        public void PeruslaskutNumeromuuttujilla()
+        [Trait("TestGroup", "NumeromuuttujatDouble")]
+        public void NumeromuuttujatDouble()
         {
             // Arrange
             using var sw = new StringWriter();
             Console.SetOut(sw);
 
-    
+
             // Set a timeout of 30 seconds for the test execution
             var cancellationTokenSource = new CancellationTokenSource();
             cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(30));
@@ -42,11 +42,9 @@ namespace HelloWorldTest
 
                 var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "Peruslaskujen tulokset:"), "Line does not contain expected text: " + resultLines[0]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "Tulo: 50"), "Line does not contain expected text: " + resultLines[1]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[2], "Summa: 15"), "Line does not contain expected text: " + resultLines[2]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[3], "Erotus: 5"), "Line does not contain expected text: " + resultLines[3]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[4], " 2"), "Line does not contain expected text: " + resultLines[4]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "10,55,5"), "Line does not contain expected text: " + resultLines[0] + "\n expected: " + " 5,510,5");
+                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "10,5 5,5"), "Line does not contain expected text: " + resultLines[1]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[2], " 16"), "Line does not contain expected text: " + resultLines[2]);
             }
             catch (OperationCanceledException)
             {
@@ -96,5 +94,4 @@ namespace HelloWorldTest
 }
 
 
-    
 
