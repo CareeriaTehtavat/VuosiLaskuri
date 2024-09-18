@@ -1,6 +1,3 @@
-
-
-
 using HelloWorld; // Ensure this is the correct namespace for the Program class
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Reflection;
@@ -42,9 +39,11 @@ namespace HelloWorldTest
 
                 var resultLines = result.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "10,55,5"), "Line does not contain expected text: " + resultLines[0] + "\n expected: " + " 5,510,5");
-                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "10,5 5,5"), "Line does not contain expected text: " + resultLines[1]);
-                Assert.True(LineContainsIgnoreSpaces(resultLines[2], " 16"), "Line does not contain expected text: " + resultLines[2]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[0], "Peruslaskujen tulokset:"), "Line does not contain expected text: " + resultLines[0]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[1], "57,75"), "Line does not contain expected text: " + resultLines[1]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[2], "16"), "Line does not contain expected text: " + resultLines[2]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[3], " 5"), "Line does not contain expected text: " + resultLines[3]);
+                Assert.True(LineContainsIgnoreSpaces(resultLines[4], " 1,9090909"), "Line does not contain expected text: " + resultLines[4]);
             }
             catch (OperationCanceledException)
             {
