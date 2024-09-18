@@ -11,7 +11,7 @@ namespace HelloWorldTest
 
         //Harjoitus - PeruslaskutNumeromuuttujilla
         [Fact]
-        [Trait("TestGroup", "VuosiLaskuri ")]
+        [Trait("TestGroup", "VuosiLaskuri")]
         public void VuosiLaskuri()
         {
             // Arrange
@@ -38,7 +38,7 @@ namespace HelloWorldTest
                 var result = sw.ToString().TrimEnd(); // Trim only the end of the string
 
                 // Define a regex pattern to match the structure, ignoring specific values
-                string pattern = @"Nimeni on [\w\s]+\. Ik‰ni on \d+ ja syntym‰vuoteni on \d{4} ja vuonna \d{4} t‰yt‰n \d+ vuotta!";
+                string pattern = @"Nimeni on [\w\s]+\. Ik√§ni on \d+ ja syntym√§vuoteni on \d{4} ja vuonna \d{4} t√§yt√§n \d+ vuotta!";
 
                 // Assert: Check if the result matches the expected structure
                 Assert.Matches(pattern, result);
